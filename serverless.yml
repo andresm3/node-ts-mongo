@@ -1,0 +1,32 @@
+service: node-ts-mongo
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    NODE_ENV: dev
+
+plugins:
+  - serverless-plugin-typescript 
+  - serverless-offline
+
+package:
+  exclude:
+    - config/.env.stg
+    - config/.env.pro
+  include:
+    - config/.env.dev
+
+functions:
+  create:
+    handler: app/handler.create
+    events:
+      - http:
+          path: tokens
+          method: post
+  findOne:
+    handler: app/handler.findOne
+    events:
+      - http:
+          path: card/{token}
+          method: get

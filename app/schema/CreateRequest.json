@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+      "card_number": {
+        "description": "Identificador de Tarjeta.",
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "minLength": 13,
+        "maxLength": 16
+      },
+      "cvv": {
+        "description": "Descripcion cvv.",
+        "type": "number",
+        "pattern": "^[0-9]+$",
+        "minLength": 3,
+        "maxLength": 4
+      },
+      "expiration_month": {
+        "description": "Expiracion mes.",
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "minLength": 1,
+        "maxLength": 2
+      },
+      "expiration_year": {
+        "description": "Expiracion anio.",
+        "type": "string",
+        "pattern": "^[0-9]+$",
+        "minLength": 4,
+        "maxLength": 4
+      },
+      "email": {
+        "description": "Email.",
+        "type": "string",
+        "pattern": "^[A-Za-z0-9-@_.]+$",
+        "minLength": 5,
+        "maxLength": 100
+      }
+    },
+   
+    "required": [
+      "email", 
+      "expiration_year",
+      "expiration_month",
+      "cvv",
+      "card_number"
+    ]
+  }
